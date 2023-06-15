@@ -24,6 +24,9 @@ const connection = mysql.createConnection({
 });
 
 app.use(express.json());
+app.get('/', function(req, res){
+  res.send('ensor');
+})
 //const accessToken = 'DJgqYZGib_uTKHWafx9C7TJFWztijKGhf27vPPXNCj11GQAAAYi9Omjr';
 // 로그인
 app.post('/login', async (req, res) => {
@@ -239,7 +242,7 @@ connection.connect((error) => {
     console.error('Failed to connect to MySQL:', error);
   } else {
     // 서버 시작
-    app.listen(3000, '172.20.10.3', () => {
+    app.listen(3000, () => {
       console.log('Server is running on port 3000');
     });
   }
@@ -383,7 +386,7 @@ app.get('/savelist', (req, res) =>{
     }
   });
 })
-
+/*
 app.post('/remix', (req,res)=>{
   
 var Web3 = require('web3');
@@ -396,4 +399,4 @@ var Contract = web3.eth.contract(abi);
 var hash = Contract.at("0x78B1f4cf88C2cF94CFf1Ea772648f4D7D18131B9");
 console.log(hash.checkHash("10001").call());
 
-})
+})*/
